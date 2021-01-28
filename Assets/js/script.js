@@ -41,7 +41,7 @@ $(document).ready(function () {
 
   // build calendar by row based on 9hour workday (9-5)
   for (let hour = 9; hour <= 17; hour++) {
-    // index for array offset from houtr
+    // index for array offset from hour
     let index = hour - 9;
 
     // create row elements

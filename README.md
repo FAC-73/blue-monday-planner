@@ -73,11 +73,11 @@ To get a local copy up and running follow these simple steps. You can also downl
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-![Jquery and Javascript Workday Planner](https://github.com/FAC-73/coding-quiz/blob/main/Assets/Images/Quiz-start.png?raw=true "Jquery and Javascript Workday Planner")
+![Jquery and Javascript Workday Planner](https://github.com/FAC-73/blue-monday-planner/blob/main/Assets/Images/Calendar.png?raw=true  "Jquery and Javascript Workday Planner")
 
 #### What's included
-1. HTML, CSS and Javascript (incl. Jquery) files include the source code for running the timed quiz application
-2. This project demonstrates ways in which javavscript and jquery can be used to manipulate the DOM elements, store and pass data to and from variables, and dynamically update HTML and trigger interactions through the use of Jquery eventListeners. 
+1. HTML, CSS and Javascript (incl. Jquery) files include the source code for running the Day Planner application
+2. This project demonstrates ways in which javavscript and jquery can be used to manipulate the DOM elements, store and pass data to and from variables, and dynamically update HTML and trigger interactions through the use of Jquery eventListeners and the the moment.js API. 
 
 
 ## Project deliverables
@@ -90,20 +90,17 @@ To get a local copy up and running follow these simple steps. You can also downl
 
 2. Each row is color coded. Pink denotes the current hour of the day, Teal represents hours left/upcoming. Gray represents time elapsed/passed.
 
-![Multiple selection answers](https://github.com/FAC-73/coding-quiz/blob/main/Assets/Images/Questions-Init.png?raw=true  "Multiple selection answers")
-<br>
-
-![Selected option](https://github.com/FAC-73/coding-quiz/blob/main/Assets/Images/Question-select.png?raw=true "Selected option")
+![Color blocks representing current, upcoming and past time rows](https://github.com/FAC-73/blue-monday-planner/blob/main/Assets/Images/colorCodes.png?raw=true "Color blocks representing current, upcoming and past time rows")
 <br>
 
 3. The current date is displayed in the header of the page.
 
-![Incorrect answer](https://github.com/FAC-73/coding-quiz/blob/main/Assets/Images/incorrect-answer.png?raw=true "Incorrect answer")
+![Current date](https://github.com/FAC-73/blue-monday-planner/blob/main/Assets/Images/initialScreen.png?raw=true "Current date")
 <br>
 
 4. Onload a pre-defined event is included so that the planner doesn't appear empty. 
 
-![Correct answer](https://github.com/FAC-73/coding-quiz/blob/main/Assets/Images/correct-answer.png?raw=true "Correct answer")
+![Pre-defined event](https://github.com/FAC-73/blue-monday-planner/blob/main/Assets/Images/initialScreen.png?raw=true "Pre-defined event")
 <br>
 
 5. To add an event to an hour clicking or focus on a row and type the name of the event into the input. 
@@ -111,47 +108,34 @@ To get a local copy up and running follow these simple steps. You can also downl
 ![Add/update event](https://github.com/FAC-73/blue-monday-planner/blob/main/Assets/Images/FocusAhead.png?raw=true "Add/update event")
 <br>
 
-6. Clicking save stores the event to localStorage. If focus is lost from the input prior to clicking save, the save button pulses orange until the user actions the button. The event will not be saved to localStorage if this is not actioned, and changes are lost. 
+6. Clicking save stores the event to localStorage. If focus is lost from the input prior to clicking save, the save button pulses orange until the user actions the button. The event will not be saved to localStorage if this is not actioned, and changes are lost. <br><br>A prevent default method is used to stop the default behavior of the input to clear the content on submit.
 
-A prevent default method is used to stop the default behavior of the input to clear the content on submit.
+![Save changes](https://github.com/FAC-73/blue-monday-planner/blob/main/Assets/Images/saveUpdatePrompt.png?raw=true "Save changes")
+<br>
 
 7. If the user leaves the page, refreshes or closes the browser. On subsequent reload the events are stored and shown when the page has loaded. 
-
-![Save score or play again?](https://github.com/FAC-73/coding-quiz/blob/main/Assets/Images/score-total.png?raw=true "Save score or play again?")
 <br>
 
 8. To delete an event. Remove the text from the input and click save. Again, if focus is lost after removing text the save button will pulse to alert the user to commit the change. Otherwise it will not be saved in localStorage. 
-
-![Add initials and save score](https://github.com/FAC-73/coding-quiz/blob/main/Assets/Images/Add-initials.png?raw=true "Add initials and save score")
-<br>
-
-9. Saved score and initials are stored in list, along with two actions:
-- Remove score
-- Play again
-
-![Displaying saved score](https://github.com/FAC-73/coding-quiz/blob/main/Assets/Images/SaveScores.png?raw=true "Displaying saved score]")
-
-
-Remove score deletes the list item. Play again restarts the quiz from the beginning.
-
 <br>
 
 
 #### HTML, CSS and Javascript & Jquery
-1. Index.html - Contains basic layout structure using a custom div element named 'quizContainer' to display the main content for the quiz such as question text, questions list, timer and form elements. 
-Semantic html is used for elements such as buttons, inputs, footers, header, h1, li. 
+1. Index.html - Contains basic layout structure. Main planner content is contained in a div using the container class from bootstrap to leverage the responsive grid, with the ID 'dayEventContainer'. Here javascript and Jquery dynamically appends the divs for displaying the hour, input for events, and the save button. 
+Most div's leverage Bootstrap CSS classes for responsive purposes.
+Semantic html is used for elements such as header, text elements.  
 
-- For improved accessibility the aria-role="timer" has been included in the div where the timer is displayed. Along with the aria-live="polite" announcement to inform a screenreader user that the timer is incrementing/decrementing. 
+- For improved accessibility additional descriptions for icons has been included. 
 
-2. styles.css - Contains layout, styling and media-queries for html content
+2. styles.css - Contains layout, styling and media-queries and animations, as well as leveraging bootstrap CSS grid via the CDN. 
 
-3. script.js - Contains Variables, variable arrays and objects for the questions and multiple choice answers, variable for correct answer types. 
-- Five eventListeners one to iterate through the questions, one to start the quiz, one to reset it,  another to submit form details to generate a list item, and a final one to remove a saved highscore from the list. 
-- A loop for iterating through the questions list and generating the new choice list for each one. 
-- A setInterval timer function that's triggered by an eventListener, functions to reset, deduct and restart the timer. 
-- If, Else statements for validating whether the selected answer is correct, or undefined. If correct they are iterated onto the next question and the correct score is added to the variable correctAnswers, along with a correct message indicator. 
-- If incorrect 10s is removed from the running timer using the deductTime function, an incorrect message is displayed. If an incorrect answer takes the timer to a value of <=0 the quiz is automatically restarted
-- Functions for creating a new list item to store a users score along with their initials using JSON stringify method. These initials and scores are stored in local storage so that they stay persistent.
+3. script.js - Contains variables, variable arrays and objects for declaring current time and hour. 
+- Makes use of the moment.js API for pulling time and date information. Date is displayed in the header of the document. Time is stored in an array and has variables set for determining the 9am - 5pm typical work day 
+- Functions for creating a row to display the time by hour. As well as add text into the input to create an even and to save it to local storage using JSON stringify method. 
+- A for loop for iterating through the hours 9am - 5pm (17:00) for creating the event array.
+- Two eventListeners one onClick event to store the event into localStorage through clicking the save button. The second an onChange event to determine if the input content has been modified and needs to trigger a changeClass method if changes are not saved. 
+- A function to change the color of the rows determined on whether the hour is current, upcoming or passed. Using if and else if statements based on the time stored in the variable 'hour
+- If, Else statements for validating whether there are saved events in localStorage on load of the document which are appended into the DOM elements. and to pass this data into an array
 
 
 #### Responsive view example - On mobile
