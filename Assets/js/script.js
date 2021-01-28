@@ -17,7 +17,6 @@ $(document).ready(function () {
   let dateHeading = $('#date');
   dateHeading.text(now);
 
-
   // Check if there are saved events in localStorage
   // Parse JSON string to an object
   let savedEvent = JSON.parse(localStorage.getItem("savedEvent"));
@@ -33,11 +32,9 @@ $(document).ready(function () {
     eventTextArray[4] = "Walk the dogs and have lunch";
   }
 
-
   // set variable to reference event container
   let eventElements = $('#dayEventContainer');
   eventElements.empty();
-
 
   // build calendar by row based on 9hour workday (9-5)
   for (let hour = 9; hour <= 17; hour++) {
@@ -108,11 +105,9 @@ $(document).ready(function () {
     // insert columnns into row
     rowDiv.append(saveEventColumn);
     saveEventColumn.append(saveBtn);
-    // STOP building save portion of row
 
     // update row color based on time of day
     changeRowColor(rowDiv, hour);
-
     eventElements.append(rowDiv);
   };
 
@@ -135,7 +130,7 @@ $(document).ready(function () {
 
   // Listener event saves data to local storage on click
   $(document).on('click', 'i', function (event) {
-      // stops text from being automatically cleared from input
+    // stops text from being automatically cleared from input
     event.preventDefault();
 
     let index = $(this).attr('save-id');
