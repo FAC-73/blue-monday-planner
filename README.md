@@ -168,6 +168,6 @@ See [LICENSE](https://github.com/FAC-73/blue-monday-planner/blob/main/LICENSE) f
 
 Kay Davis
 
-Project repo link: [https://fac-73.github.io/blue-monday-planner/](https://fac-73.github.io/blue-monday-planner/
+Project repo link: [https://fac-73.github.io/blue-monday-planner](https://fac-73.github.io/blue-monday-planner/)
 <br>
 Project website: [https://github.com/FAC-73/blue-monday-planner](https://github.com/FAC-73/blue-monday-planner)
