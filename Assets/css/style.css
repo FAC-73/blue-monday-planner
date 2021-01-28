@@ -1,0 +1,219 @@
+body {
+  vertical-align: middle;
+  background-color: #f8f8f8;
+}
+
+/* Header elements */
+
+header {
+  background-color:white;
+  border-bottom: 1px solid #D9D9D9;
+  width: 100%;
+  padding-top: 28px;
+  padding-bottom: 16px;
+  box-shadow: 2px 2px 12px 4px #0000001a;
+}
+
+.header-thumbnail {
+    height: 90px;
+    width: 90px;
+    background-color: #69DDC7;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    padding-top: 12px;
+}
+
+@media (max-width: 768px) {
+    .header-thumbnail {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 20px;
+}
+}
+
+h1 {
+    font-family: IBM Plex Sans;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: -0.5px;
+    text-align: left;
+    color: black;
+    margin-top:0px;
+    padding-left: 20px;
+}
+
+h2 {
+  font-family: IBM Plex Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 40px;
+  letter-spacing: -0.5px;
+  text-align: left;
+  color: #282828;
+  padding-left: 6px;
+}
+
+#date {
+    font-family: IBM Plex Sans;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 40px;
+    letter-spacing: -0.5px;
+    text-align: right;
+    color: #282828;
+    bottom: 0px;
+}
+
+@media (max-width: 768px) {
+  #date, h2 {
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+}
+
+/* Bootstrap grid overides */
+
+.col-md-1, .col-md-2, .col-md-9 {
+  padding: 0;
+}
+
+/* planner main container */
+
+#dayEventContainer {
+  margin-top: 20px;
+  margin-bottom: 80px;
+  padding-top: 40px;
+  padding: 40px;
+} 
+
+/* planner row items */
+
+.eventRow {
+  height: 48px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-radius: 8px;
+  font-family: IBM Plex Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: -0.5px;
+  text-align: left;
+}
+
+/* row elements */
+
+input {
+  background: transparent;
+  border: none;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+/* div containing time by hour */
+
+.timeDisplay {
+  background-color:white;  
+  color: #282828;
+  height:100%;
+  width: 100%;
+  text-align: center;
+  border-radius: 8px 0px 0px 8px;
+  display: inline-block;
+  font-family: IBM Plex Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: -0.5px;
+}
+
+/* style container with daily plan */
+
+.eventDetail {
+  color: black;  
+  font-size: 14pt;
+  height: 100%;
+  width: 100%;
+}
+
+/* save button and icon styles */
+
+.saveIcon {
+  background-color: #282828;
+  color: white;
+  border-radius: 0px 8px 8px 0px;
+  font-size: 1.25em;
+  width: 100%;
+  height: 48px;
+  text-align: center;
+  padding-top: 12px;
+}
+
+.saveIcon:hover {
+    cursor: pointer;
+    background-color: #333333;
+    animation: none;
+  }
+
+  .saveIcon:active {
+    cursor: pointer;
+    background-color: #616161;
+  }
+
+  .saveIcon:focus {
+    background-color: #282828;
+    border: 2px solid #69DDC7;
+  }
+
+
+/* media queries for planner row items */
+
+@media (max-width: 768px) {
+  .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .eventRow {
+    height: 100%;
+    border-radius: 10;
+    margin: 10px;
+  }
+
+  .saveIcon { border-radius: 0 0 8px 8px; }
+
+  .timeDisplay { border-radius: 8px 8px 0 0; }
+}
+
+/* Animation for button */
+
+@keyframes button-pulse
+{
+  0% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.buttonPulse {
+  animation: button-pulse 0.75s ease-out;
+  animation-iteration-count: infinite;
+  opacity: 1;
+  background: #FF9800;
+}
+
+/* .wrapper
+{ 
+  padding: 20px;     
+}  */
